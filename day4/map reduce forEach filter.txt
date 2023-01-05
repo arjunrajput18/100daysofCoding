@@ -1,0 +1,39 @@
+
+const students = [
+  { name: "zditya", age: 18 },
+  { name: "akash", age: 20 },
+  { name: "kunal", age: 23 },
+  { name: "rohan", age: 24 },
+]
+//.forEach:
+
+// .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+
+// .map():
+// .map() executes the same code on every element in an array and returns a new array with the updated elements.
+
+// .filter():
+// .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+
+
+// The map() method returns a new array, whereas the forEach() method does not return a new array. 
+
+// students.forEach((val)=>console.log(val.name))
+
+// const agegrp=students.filter((val)=>val.age>=23?console.log(val.name):false)
+
+// agegrp
+
+
+// students.map()
+
+let nums = [8, 2, 4, 6, 9, 5, 7, 3, 3];
+
+
+// var sorted=nums.sort((a,b)=>b-a)
+
+// console.log(sorted)
+// The reduce() method executes a reducer function on each element of the array and returns a single output value.
+const sumgrp=nums.reduce((total,sum)=>(total+sum),3)
+ console.log(sumgrp)
+sumgrp
