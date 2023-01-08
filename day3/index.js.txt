@@ -45,7 +45,8 @@ details.apply(obj1,["java"])
 details.apply(obj1,["php"])
 
 
-// bind is similar to call, but it solves the problem of sending object in call method every time.
+// With the bind() method, an object can borrow a method from another object.without making a copy of that method.
+bind is similar to call, but it solves the problem of sending object in call method every time.
 
  var bindedObject1=details.bind(obj1)
  bindedObject1("C")
