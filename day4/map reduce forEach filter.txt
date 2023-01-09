@@ -1,14 +1,13 @@
 
+  
 const students = [
-  { name: "zditya", age: 18 },
+  { name: "Arjun", age: 18 },
   { name: "akash", age: 20 },
   { name: "kunal", age: 23 },
   { name: "rohan", age: 24 },
 ]
 
-
-
-//HOF :-Basically, a function which takes another function as an argument or returns a function is known as a higher order function. 
+/HOF :-Basically, a function which takes another function as an argument or returns a function is known as a higher order function. 
 
 //In JavaScript functions, map, filter and reduce are examples of built-in higher-order functions.
 
@@ -22,22 +21,49 @@ const num = [10, 20, 30];
 const num10 = num.map(i => i * 2);
 console.log(num10); 
 
+The first difference between map() and forEach() is the returning value. The forEach() method returns undefined and map() returns a new array with the transformed elements. Even if they do the same job, the returning value remains different.
+
+students.forEach((element)=>{
+console.log(element.name,":",element.age);
+})
+console.log("--------------")
+students.map((element)=>{
+console.log(element.name, ":",element.age);
+})
+
+console.log("-------return-------")
+const myAwesomeArray = [1, 2, 3, 4, 5]
+
+let abc=myAwesomeArray.forEach(x => x * x)
+console.log(abc);
+
+let xyz=myAwesomeArray.map(x => x * x)
+console.log(xyz);
 
 
-// .filter():
-// .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+const myAwesomeArray = [1, 2, 3, 4, 5]
+myAwesomeArray.forEach(x => x * x)
+//>>>>>>>>>>>>>return value: undefined
+
+myAwesomeArray.map(x => x * x)
+//>>>>>>>>>>>>>return value: [1, 4, 9, 16, 25]
 
 
 // The map() method returns a new array, whereas the forEach() method does not return a new array. 
 
 // students.forEach((val)=>console.log(val.name))
 
-// const agegrp=students.filter((val)=>val.age>=23?console.log(val.name):false)
-
-// agegrp
-
-
 // students.map()
+
+// .filter():
+// .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+
+const agegrp=students.filter((val)=>val.age>=23?val.name:false)
+
+
+console.log(agegrp)
+
+
 
 let nums = [8, 2, 4, 6, 9, 5, 7, 3, 3];
 
