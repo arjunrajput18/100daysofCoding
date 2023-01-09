@@ -1,0 +1,100 @@
+
+//Event Bubbling & Capturing
+//stop propagation , Immediadate propagation & Prevent Default
+
+
+//Event bubbling :-child to parent
+var div = document.querySelector("div");
+var button = document.querySelector("button");
+var a = document.querySelector("a");
+
+// div.addEventListener("click",()=>{
+//   console.log("div");
+// })
+
+// button.addEventListener("click",()=>{
+//   console.log("button");
+// }) 
+//output:-button div
+
+
+
+//Event Capturing :-parent to child
+// div.addEventListener("click",()=>{
+//   console.log("div");
+// },true)
+
+// button.addEventListener("click",()=>{
+//   console.log("button");
+// },true)
+
+//output:- div button
+
+//stop propagation :-prachar stop means not go in above div just do their work and stop propagation .
+
+
+// div.addEventListener("click",()=>{
+//   console.log("div");
+// })
+
+// button.addEventListener("click",(event)=>{
+//   event.stopPropagation();
+//   console.log("button");
+// })
+
+
+//output  button 
+
+
+// div.addEventListener("click",()=>{
+//   console.log("div");
+// })
+
+// button.addEventListener("click",(event)=>{
+
+//   console.log("button");
+// })
+
+// button.addEventListener("click",(event)=>{
+//   event.stopPropagation();
+//   console.log("button1");
+// })
+// button.addEventListener("click",(event)=>{
+
+//   console.log("button4");
+// })
+
+//output  button button1 button4
+
+
+//stopImmediate propagation 
+
+// div.addEventListener("click",()=>{
+//   console.log("div");
+// })
+
+// button.addEventListener("click",(event)=>{
+
+//   console.log("button");
+// })
+
+// button.addEventListener("click",(event)=>{
+//   event.stopImmediatePropagation();
+//   console.log("button1");
+// })
+
+// button.addEventListener("click",(event)=>{
+
+//   console.log("button3");
+// })
+//output   button button1 
+
+
+//preventDefault() stop the page i.e it dont go to new page.
+// a.addEventListener("click",(event)=>{
+//   event.preventDefault();
+//   console.log("button");
+// })
+
+
+
