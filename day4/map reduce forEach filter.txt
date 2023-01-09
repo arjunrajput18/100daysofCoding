@@ -5,12 +5,24 @@ const students = [
   { name: "kunal", age: 23 },
   { name: "rohan", age: 24 },
 ]
+
+
+
+//HOF :-Basically, a function which takes another function as an argument or returns a function is known as a higher order function. 
+
+//In JavaScript functions, map, filter and reduce are examples of built-in higher-order functions.
+
 //.forEach:
 
 // .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
 
 // .map():
 // .map() executes the same code on every element in an array and returns a new array with the updated elements.
+const num = [10, 20, 30];
+const num10 = num.map(i => i * 2);
+console.log(num10); 
+
+
 
 // .filter():
 // .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
