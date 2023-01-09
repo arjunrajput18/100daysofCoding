@@ -1,0 +1,334 @@
+
+//map ,set ,weakset,weakMap
+//set
+//it contains only unique values
+//object constructor
+
+let myArray=[1,3,4,43]
+
+let obj=new Set(myArray);
+
+console.log(obj)//Set(4) {1, 3, 4, 43} only unique value
+
+ obj.add(5)
+ 
+
+ console.log(obj);//Set(5) {1, 3, 4, 43, 5}
+ console.log(obj.size)//5
+obj.delete(43)
+console.log(obj);//Set(4) {1, 3, 4, 5}
+
+console.log(obj);
+
+var obj1={name:"Ajay"}
+obj.add(obj1)
+console.log(obj);
+
+//obj.clear();
+console.log(obj);
+console.log(obj.has(4));//it conatins true or false
+
+for (let new1 of obj){
+  console.log(new1);
+}
+
+obj.forEach((val)=>{console.log(val);})
+
+
+
+
+
+console.log("---------Map-----");
+
+//Map ->key ->values
+
+let myMap=new Map([['a1',"Ajay"],["a2","vikas"]])
+console.log(myMap);
+
+
+myMap.set("a2","Arjun")
+console.log(myMap);
+ 
+
+// myMap.delete("a2")
+// console.log(myMap);
+
+myMap.get("a2")
+
+console.log(myMap.get("a2"));
+console.log(myMap.get("a1"));
+
+for(let [key,value] of myMap){
+  console.log(`keys: ${key}, value : ${value}`);
+}
+console.log("---------Map forEach-----");
+myMap.forEach((ele,index)=>{console.log(index,ele);})
+
+
+
+
+//weakset we only store object.add()  WeakSet() delete() has() 
+//we cannot iterate.i.e cannot use forEach
+
+let ws=new WeakSet();
+console.log(ws);// add()  WeakSet() delete() has()
+
+//ws.add(1)
+//console.log(ws);//we only store object not value
+
+// var ob1={};
+// var ob2={}
+// ws.add(ob1);
+// ws.add(ob2);
+// console.log(ws);//WeakSet {{…}, {…}}
+
+var ob1={"name":"Arjun","age":"25"};
+var ob2={"name":"pratik"}
+ws.add(ob1);
+ws.add(ob2);
+console.log(ws);//WeakSet {{…}, {…}}
+ws.delete(ob1)
+console.log(ws.has(ob1));//false
+
+
+//WeakMap 
+console.log("------weakMap-------");
+let wm=new WeakMap();
+ 
+console.log(wm);//constructor ƒ WeakMap()  delete() has() get set
+//let wm1=new WeakMap(([['a1',"Ajay"],["a2","vikas"]]));// Uncaught TypeError: Invalid value used as weak map key
+// at WeakMap.set (<anonymous>)
+// at new WeakMap (<anonymous>)
+
+
+var ob3={}
+var ob4={}
+
+wm.set(ob3,"private");
+wm.set(ob4,"private"); 
+
+
+console.log(wm);
+
+
+
+var ob5={"name":"arjun"}
+var ob6={}
+
+wm.set(ob5,"football");
+wm.set(ob6,"school data"); 
+
+
+console.log(wm);//WeakMap {{…} => 'private', {…} => 'private', {…} => 'football', {…} => 'school data'}
+//
+//output below
+// {Object => "football"}
+// key
+// : 
+// {name: 'arjun'}
+// value
+// : 
+// "football"
+
+
+
+
+//WeakMap and WeakSet -->object related activity happens , aur data and key value cannot store we cannot iterate 
+//map and set we can play with object and iterate unique elements  uniqueness 
+
+//SET :---- A JavaScript Set is a collection of unique values. Each value can only occur once in a Set. A Set can hold any value of any data type. a Set is a collection of unique values, unlike an array which can have duplicates.
+//WeakMap is a new Data Structure or Collection introduced in ES6. WeakMaps allows you to store a collection of Key-Value pairs. 
+
+
+
+
+
+
+//
+// Set is one dimensional unique array, however Map is 2D and has key-value pair, where key shall be unique. 
+var array = [1, 2, 3, 3];
+
+var set = new Set(array); // Will have [1, 2, 3]
+assert(set.size, 3);
+
+var map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+map.set('c', 3);
+map.set('C', 3);
+map.set('a', 4); // Has: a, 4; b, 2; c: 3, C: 3
+
+
+
+//Summary:
+// Use a Set when your dataset needs to be composed of unique values
+
+// Use a Map when you have pairs of associated data. You map the keys to the values
+
+//
+
+// Summary:
+// Use a Set when your dataset needs to be composed of unique values
+// Use a Map when you have pairs of associated data. You map the keys to the values
+
+
+// Example ------------
+
+// ##Set:
+// There is a meeting with people coming from different organizations. Some people come from the same organization. We need to compose a list all the different organzations. For this we can use a set since we only want to include every organization once:
+
+// const organization = new Set();
+
+// organization.add('org1');
+// organization.add('org2');
+// organization.add('org3');
+// organization.add('org1');
+// organization.add('org3');
+// organization.add('org1');
+
+// for(let org of organization){
+//   console.log(org);
+// }
+//output:--org1,org2,org3
+
+//Example Map:
+// We have a pack of dogs and want to assign an age to each dog. We want to map the unique name of each dog to the age of the dog:
+
+// const dogs = new Map([['fluffy', 10], ['barkie', 13]]);
+
+// dogs.forEach((value, key) => console.log(key, value));
+
+//How is Map different from an Object?
+// An Object is also a collection of key value pairs and can fulfill often the same purpose as a Map can (which is creating key-value pairs). However, there are some key differences between a Map and an Object:
+
+// Map is built in Iterable, this allows it to use the for of loop or its implementation of the forEach() method which an plain JS Object cannot use.
+// Map has some nice built in methods on its prototype which makes working with it very nicely. Because al Objects inherit from Object.prototype is has access to more useful methods. For example, the size() method on Map returns the number of keys in the Map.
+
+
+//var obj = {};
+// obj.name= "Anand Deep Singh";
+// console.log(obj.name); //logs "Anand Deep Singh"
+// similarly in ES6, we can use regular object.
+
+// var map = new Map();
+// map.set("name","Anand Deep Singh");
+// console.log(map.get("name")); //logs "Anand Deep Singh"
+// But noticeable thing is a Map isn’t created with the literal object syntax, and that one uses set and get methods to store and access data.
+
+// It has a has method to check whether the key exists in the object or not, delete method to delete the object and clear method to clear the entire object.
+
+
+//Set is a unique list of values. It’s simply a unique list.
+
+// var set = new Set(["a", "a","e", "b", "c", "b", "b", "b", "d"]);
+// console.log(set); //logs Set {"a", "e", "b", "c", "d"}
+// A Set can’t be accessed like an array, and it provides the same methods as a Map.
+
+
+
+// There are two main data structures:
+
+// Objects: are used for storing keyed collections.
+// Arrays: are used for storing ordered collections.
+// But that’s not enough for real life. That’s why Map and Set also exist.
+
+// Map: is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+// For instance:
+
+// let map = new Map();
+
+// map.set('1', 'str1');   // a string key
+// map.set(1, 'num1');     // a numeric key
+// map.set(true, 'bool1'); // a boolean key
+
+
+// let hamid = { name: "Hamid" };
+// // hamid is the key for the map
+// map.set(hamid, 123); // an object key
+// Set : is a special type collection – “set of values” (without keys), where each value may occur only once.
+// instance:
+// let set = new Set();
+
+// let Arjun= { name: "Arjun" };
+// let pete = { name: "Pete" };
+// let mary = { name: "Mary" };
+
+// // visits, some users come multiple times
+// set.add(Arjun);
+// set.add(pete);
+// set.add(Arjun);
+
+
+// // set keeps only unique values
+// console.log( set.size ); 
+
+
+//Note
+//In Map() , key can be any type [String, number, Object,boolean] but in regular object key must be a string type.
+
+//Set is one dimensional unique array, however Map is 2D and has key-value pair, where key shall be unique.
+
+
+
+//What's the difference between ES6 Set and WeakSet?
+
+//The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. This means that an object in WeakSet can be garbage collected if there is no other reference to it.
+
+// Other differences (or rather side-effects) are:
+
+// Sets can store any value. WeakSets are collections of objects only.
+// WeakSet does not have size property.
+// WeakSet does not have clear, keys, values, entries, forEach methods.
+// WeakSet is not iterable.
+
+//Set:- A Set is a collection of values, where each value may occur only once. And main method are add, delete, has, clear and size.
+
+// WeakSet:- WeakSet objects allows you to store collection of unique key.“WeakSet” keys cannot be primitive types. Nor they can be created by an array or another set. Values of WeakSet must be object reference.
+
+//Sets allows to store only once.
+// The elements stored in set does not have a key or index. So it is difficult to retrieve an element using default method like get()
+// A WeakSet only accepts objects as its values.
+// A weakset doesnot prevent garbage collection if there aren’t any other references to an object stored (the reference is weak
+
+
+
+// in simple words: difference Set and WeakSet?
+
+
+//1)set is a collection of unique values where weakset is a collection of unique objects.
+//2)set doesn't have garbage collection features where weakset allow garbage collection of objects .This prevents memory leaks.
+
+//3)set have size property where weakset doesnt have size property
+
+//4)set is iterable where weakset is not iterable.
+
+//5)set have clear ,keys,values,entities and forEach Method where weakset doesn't have these methods.
+
+
+ https://www.google.com/search?q=weakset+vs+set&rlz=1C1RXQR_enIN1012IN1012&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjh8KLynrr8AhWj-DgGHTBYBH4Q_AUoA3oECAEQBQ&biw=626&bih=559&dpr=1.5#imgrc=LaX2y4KyE-9LMM
+
+
+ //The functional mechanism of Map and WeakMap is same but they have little differences.
+
+// 1) A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
+
+// 2) WeakMap objects doesn't prevent garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
+
+// 3) There is no size property exists in WeakMap.
+
+
+
+
+// Difference between Map and WeakMap:
+
+// A Map is an unordered list of key-value pairs where the key and the value can be of any type like string, boolean, number, etc.	In a Weak Map, every key can only be an object and function. It used to store weak object references.
+// Maps are iterable.	WeakMaps are not iterable.
+// Maps will keep everything even if you don’t use them.	WeakMaps holds the reference to the key, not the key itself.
+// The garbage collector doesn’t remove a key pointer from “Map” and also doesn’t remove the key from memory.	The garbage collector goes ahead and removes the key pointer from “WeakMap” and also removes the key from memory. WeakMap allows the garbage collector to do its task but not the Map.
+// Maps have some properties : .set, .get, .delete, .size, .has, .forEach, Iterators.	WeakMaps have some properties : .set, .get, .delete, .has.
+// You can create a new map by using a new Map().	You can create a new WeakMap by using a new WeakMap().
+
+
+
+
+
