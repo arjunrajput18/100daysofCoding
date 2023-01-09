@@ -41,8 +41,6 @@ let xyz=myAwesomeArray.map(x => x * x)
 console.log(xyz);
 
 
-
-
 const myAwesomeArray = [1, 2, 3, 4, 5]
 myAwesomeArray.forEach(x => x * x)
 //>>>>>>>>>>>>>return value: undefined
@@ -50,20 +48,22 @@ myAwesomeArray.forEach(x => x * x)
 myAwesomeArray.map(x => x * x)
 //>>>>>>>>>>>>>return value: [1, 4, 9, 16, 25]
 
-// .filter():
-// .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
-
 
 // The map() method returns a new array, whereas the forEach() method does not return a new array. 
 
 // students.forEach((val)=>console.log(val.name))
 
-// const agegrp=students.filter((val)=>val.age>=23?console.log(val.name):false)
-
-// agegrp
-
-
 // students.map()
+
+// .filter():
+// .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+
+const agegrp=students.filter((val)=>val.age>=23?val.name:false)
+
+
+console.log(agegrp)
+
+
 
 let nums = [8, 2, 4, 6, 9, 5, 7, 3, 3];
 
