@@ -1,4 +1,13 @@
 
+
+
+let arr=["Arjun","mahesh","pratik"]
+
+console.log(arr)//Array 
+console.log(...arr);//Array to object
+
+
+
 // Currying function in javascript
 
 // Function Currying is a process in functional programming in which we transform function with multiple arguments into a series of nested functions that takes one argument and eventually resolve to a value.
