@@ -1,0 +1,172 @@
+
+// Currying function in javascript
+
+// Function Currying is a process in functional programming in which we transform function with multiple arguments into a series of nested functions that takes one argument and eventually resolve to a value.
+
+// In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third one, and so forth until all arguments have been fulfilled.
+// That is when we turn a function call add(1,2,3) into add(1)(2)(3). By using this technique, the little piece can be configured and reused with ease.
+// Why it’s useful?
+// Currying helps you to avoid passing the same variable again and again.
+// It helps to create a higher-order function. It is extremely helpful in event handling. 
+
+function Addition(a){
+  return function (b){
+    return function (c){
+      console.log(a,b,c);
+      return a+b+c;
+    }
+  }
+}
+
+
+
+//normal method we used this method in closure function inside another function return access varibale of outer function
+// let res=Addition(2);
+// let data=res(4)
+// let data1=data(7)
+// console.log(data1);
+
+//currying method
+
+// let res =Addition (2)(4)(7)  //a=2,b=4,c=7
+
+// console.log(res);
+
+// userObj={
+//   name:"Arjun",
+//   age:28
+// }
+
+// function userInfo(obj){
+//   return function (userinfoData){
+//     return obj[userinfoData]
+//   }
+// }
+
+// let res=userInfo(userObj);
+
+// console.log(res("age"));
+
+//if their is more funcion return then we do like 
+// console.log(res("age")()()) 
+
+// In JavaScript, there exists an advanced technique of working with functions. It is called carrying. However, it is used not only in JavaScript but also in other programming languages.
+
+// Generally, it is a transformation of functions.So, it translates a function from callable likef(a, b, c) to f(a)(b)(c)
+
+
+// Currying
+// Currying is a technique of evaluating function with multiple arguments, into sequence of functions with single argument.In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third one, and so forth, until all arguments have been fulfilled.
+
+// Uses of currying function
+//   a) It helps to avoid passing same variable again and again.
+
+//   b) It is extremely useful in event handling. 
+// function curry(fn) { // curry(fn) does transforms curry
+//   return function (a) {
+//     return function (b) {
+//          return function (c) {
+//               return function (d) {
+//       return fn(a, b,c,d);
+//     };
+//   };
+//   }}
+// } 
+// function sum(a, b,c,d) {
+//   return a + b+c+d;
+// }
+// let currySum = curry(sum);
+// console.log(currySum(10)(20)(30)(40)); //
+
+
+// What is currying in JavaScript with example?
+// It is a technique in functional programming, transformation of the function of multiple arguments into several functions of a single argument in sequence.
+
+
+
+// In the following example,since no currying is used, all the parameters were passed at once(volume(11,2,3))  to the existing function to calculate the volume.
+
+// function volume(length, width, height) {
+//   return length * width * height;
+// }
+// console.log((volume(11,2,3)));
+
+
+// n the following example,since currying is used,parameters were passed one by one(volume(11)(2)(3))  until the last function called the last parameter .
+
+
+// function volume(length) {
+//   return function(width) {
+//      return function(height) {
+//         return height * width * length;
+//      }
+//   }
+// }
+//  console.log(volume(11)(2)(3))
+
+
+//infinite curring in javascript
+
+// function add(a){
+//   return function (b){
+//     return function (){
+//       return a+b;
+//     }
+//   }
+// }
+
+// console.log(add(4)(5)())
+//output -> 9
+
+
+
+// function add(a){
+//   return function (b){
+//     return function (c){
+//       return function (){
+//       return a+b+c;
+//       }
+//     }
+//   }
+// }
+
+// console.log(add(4)(5)(7)())
+
+
+function add(a){
+  return function (b){
+    if(b) return add(a+b);
+    return a;
+  }
+}
+
+console.log(add(4)(5)(7)())
+
+// //implementation above example.
+// //
+// function add(4){
+//   return function (5){
+//     if(5) return add(4+5);//9
+//     return a;
+//   }
+// }
+
+// function add(9){
+//   return function (7){
+//     if(7) return add(9+7);//16
+//     return a;
+//   }
+// }
+
+// function add(16){
+//   return function (b-empty){
+//     if(empty-false) return add(9+7);//16
+//     return 16;
+//   }
+// }
+
+
+
+
+
+
