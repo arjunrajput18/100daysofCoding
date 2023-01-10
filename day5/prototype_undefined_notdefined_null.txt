@@ -3,7 +3,23 @@
 
 // A variable that has not been assigned a value is of type undefined
 // undefined is a property of the global object. That is, it is a variable in global scope
+//null :null datatype is object , it is primitive type. 
+null is an assignment value. It can be assigned to a variable as a representation of no value .
+Null: It is the intentional absence of the value. It is one of the primitive values of JavaScript. Undefined: It means the value does not exist in the compiler.
 
+console.log(2*null)//0
+console.log(2+1+null)//3
+console.log(null==undefined)//true
+console.log(null===undefined)//false
+typeof null is object
+typeof undefined is undefined
+typeof [] is object
+typeof Array is function
+
+
+
+Is  proto  same as [[ prototype ]]?
+In reality, the only true difference between prototype and proto is that the former is a property of a class constructor, while the latter is a property of a class instance.
 
 
 
@@ -18,8 +34,21 @@ console.log(first)
 
 
 //not defined" is usually caused by a typo, or by trying to access a variable that is out of scope.
+///we can create own prototype like sum 
+var arr = [1, 2, 3];
+console.log(arr);
 
+Array.prototype.show = function () {
+  return this;
+};
 
+console.log(arr.show());
+
+Array.prototype.sum = function(){
+  return this.reduce((acc,cur)=> acc+cur)  //acc=
+}
+
+console.log(arr.sum()) 
 let obj1={
   name:"Arjun",
   getName:function(){
