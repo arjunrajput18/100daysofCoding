@@ -154,3 +154,26 @@ let obj4={
 
 
 console.log(obj4.getsub())
+
+
+
+var obj1 = {
+  name: "bhumi",
+  getName: function () {
+    return this.name;
+  },
+  getRoll: function () {
+    return this.roll;
+  },
+};
+
+function MyPrototype(name,roll){
+  this.name=name;
+  this.roll = roll;
+
+}
+
+MyPrototype.prototype = obj1;
+
+const newObj = new MyPrototype("Arjun",19);
+console.log(newObj.getName(),newObj.getRoll())
