@@ -9,7 +9,7 @@ console.log(...arr);//Array to object
 
 
 // Currying function in javascript
-
+//Currying: Currying is a function that takes one argument at a time and returns a new function expecting the next argument
 // Function Currying is a process in functional programming in which we transform function with multiple arguments into a series of nested functions that takes one argument and eventually resolve to a value.
 
 // In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third one, and so forth until all arguments have been fulfilled.
