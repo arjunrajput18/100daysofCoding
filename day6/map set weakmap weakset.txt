@@ -1,22 +1,89 @@
 
+
 //map ,set ,weakset,weakMap
 //set
 //it contains only unique values
 //object constructor
+// Map and Set
+// Till now, we’ve learned about the following complex data structures:
 
-let myArray=[1,3,4,43]
+// Objects are used for storing keyed collections.
+// Arrays are used for storing ordered collections.
+// But that’s not enough for real life. That’s why Map and Set also exist.
+
+// Map
+// Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+
+// Methods and properties are:
+
+// new Map() – creates the map.
+// map.set(key, value) – stores the value by the key.
+// map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+// map.has(key) – returns true if the key exists, false otherwise.
+// map.delete(key) – removes the element (the key/value pair) by the key.
+// map.clear() – removes everything from the map.
+// map.size – returns the current element count.
+// For instance:
+
+// let map = new Map();
+
+// map.set('1', 'str1');   // a string key
+// map.set(1, 'num1');     // a numeric key
+// map.set(true, 'bool1'); // a boolean key
+
+// // remember the regular Object? it would convert keys to string
+// // Map keeps the type, so these two are different:
+// alert( map.get(1)   ); // 'num1'
+// alert( map.get('1') ); // 'str1'
+
+// alert( map.size ); // 3
+// Set
+// A Set is a special type collection – “set of values” (without keys), where each value may occur only once.
+
+// Its main methods are:
+
+// new Set([iterable]) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
+// set.add(value) – adds a value, returns the set itself.
+// set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
+// set.has(value) – returns true if the value exists in the set, otherwise false.
+// set.clear() – removes everything from the set.
+// set.size – is the elements count.
+// The main feature is that repeated calls of set.add(value) with the same value don’t do anything. That’s the reason why each value appears in a Set only once.
+
+// For example, we have visitors coming, and we’d like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be “counted” only once.
+
+// ES6 has a native object Set to store unique values. To get an array with unique values you could now do this:
+
+// var myArray = ['a', 1, 'a', 2, '1'];
+
+// let unique = [...new Set(myArray)];
+
+// console.log(unique); // unique is ['a', 1, 2, '1']
+// The constructor of Set takes an iterable object, like an Array, and the spread operator ... transform the set back into an Array.
+
+// function unique(arr) {
+//   let unique = [...new Set(arr)];
+//   return unique
+//   }
+  
+//   let values = ["Hare", "Krishna", "Hare", "Krishna",
+//     "Krishna", "Krishna", "Hare", "Hare"
+//   ];
+  
+//   console.log( unique(values) )// output :[ 'Hare', 'Krishna' ]
+let myArray=[1,3,4,43,3,1]
 
 let obj=new Set(myArray);
 
-console.log(obj)//Set(4) {1, 3, 4, 43} only unique value
+console.log(obj)//Set(4) {1, 3, 4, 43} only unique value
 
  obj.add(5)
- 
+  
 
- console.log(obj);//Set(5) {1, 3, 4, 43, 5}
+ console.log(obj);//Set(5) {1, 3, 4, 43, 5}
  console.log(obj.size)//5
 obj.delete(43)
-console.log(obj);//Set(4) {1, 3, 4, 5}
+console.log(obj);//Set(4) {1, 3, 4, 5}
 
 console.log(obj);
 
@@ -66,7 +133,7 @@ myMap.forEach((ele,index)=>{console.log(index,ele);})
 
 
 
-
+//WeakSet in JavaScript is used to store a collection of objects. 
 //weakset we only store object.add()  WeakSet() delete() has() 
 //we cannot iterate.i.e cannot use forEach
 
@@ -80,13 +147,13 @@ console.log(ws);// add()  WeakSet() delete() has()
 // var ob2={}
 // ws.add(ob1);
 // ws.add(ob2);
-// console.log(ws);//WeakSet {{…}, {…}}
+// console.log(ws);//WeakSet {{…}, {…}}
 
 var ob1={"name":"Arjun","age":"25"};
 var ob2={"name":"pratik"}
 ws.add(ob1);
 ws.add(ob2);
-console.log(ws);//WeakSet {{…}, {…}}
+console.log(ws);//WeakSet {{…}, {…}}
 ws.delete(ob1)
 console.log(ws.has(ob1));//false
 
@@ -119,7 +186,7 @@ wm.set(ob5,"football");
 wm.set(ob6,"school data"); 
 
 
-console.log(wm);//WeakMap {{…} => 'private', {…} => 'private', {…} => 'football', {…} => 'school data'}
+console.log(wm);//WeakMap {{…} => 'private', {…} => 'private', {…} => 'football', {…} => 'school data'}
 //
 //output below
 // {Object => "football"}
@@ -149,7 +216,7 @@ console.log(wm);//WeakMap {{…} => 'private', {…} => 'private', {…} => 'fo
 var array = [1, 2, 3, 3];
 
 var set = new Set(array); // Will have [1, 2, 3]
-assert(set.size, 3);
+//assert(set.size, 3);
 
 var map = new Map();
 map.set('a', 1);
@@ -305,7 +372,7 @@ map.set('a', 4); // Has: a, 4; b, 2; c: 3, C: 3
 //5)set have clear ,keys,values,entities and forEach Method where weakset doesn't have these methods.
 
 
- https://www.google.com/search?q=weakset+vs+set&rlz=1C1RXQR_enIN1012IN1012&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjh8KLynrr8AhWj-DgGHTBYBH4Q_AUoA3oECAEQBQ&biw=626&bih=559&dpr=1.5#imgrc=LaX2y4KyE-9LMM
+ //https://www.google.com/search?q=weakset+vs+set&rlz=1C1RXQR_enIN1012IN1012&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjh8KLynrr8AhWj-DgGHTBYBH4Q_AUoA3oECAEQBQ&biw=626&bih=559&dpr=1.5#imgrc=LaX2y4KyE-9LMM
 
 
  //The functional mechanism of Map and WeakMap is same but they have little differences.
@@ -327,8 +394,41 @@ map.set('a', 4); // Has: a, 4; b, 2; c: 3, C: 3
 // The garbage collector doesn’t remove a key pointer from “Map” and also doesn’t remove the key from memory.	The garbage collector goes ahead and removes the key pointer from “WeakMap” and also removes the key from memory. WeakMap allows the garbage collector to do its task but not the Map.
 // Maps have some properties : .set, .get, .delete, .size, .has, .forEach, Iterators.	WeakMaps have some properties : .set, .get, .delete, .has.
 // You can create a new map by using a new Map().	You can create a new WeakMap by using a new WeakMap().
+//weakMap
+//keys object
+//not iterable
+
+var obj1 = {
+  name: "bhumika",
+};
+
+const wm = new WeakMap();
+wm.set(obj1, "singh");
+wm.set(obj, "rajput");
+wm.set(obj1,"sihnh")
+console.log(wm);
+// console.log(wm.has({ name: "bhumika" }));
+
+//weakSet
+//collection of objects, unique
+var obj3 = {
+  name: 1,
+};
+var obj4 = {
+  rollno: 10,
+};
+
+const ws = new WeakSet();
+ws.add(obj3);
+ws.add(obj4);
+// console.log(ws);
+
+ws.add(obj3);
+console.log(ws);
+ws.add(1);
 
 
-
-
-
+// Map - key-value pair of any type , set() =>insert elemts
+//set- unique of any type  add=> insert
+//weakMap -key-value pair, keys->object, value->any type
+//weakSet - unique objects
