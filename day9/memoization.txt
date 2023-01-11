@@ -1,0 +1,110 @@
+
+//Implementing Memoization in javascript
+//Memoization is an optimization technique that can be used to reduce time consuming calculations by saving previous input to something called cache and returning the result from it.
+
+// let sum = 0;
+// const calc = (n) => {
+//   for (let i = 0; i <= n; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// };
+
+// const memoize = (fn) => {
+//   let cache = {};
+//   console.log(cache)
+
+//   return function (...args){
+//     let n=args[0];
+//     if(n in cache){
+//       console.log("cache");
+//       console.log(cache)
+
+//       return cache[n]
+//     }else {
+//       console.log("calculating first time...");
+//       console.log(fn);
+//      let result = fn(n) //calc(n)//calc(5)
+//      console.log(result);
+//      cache[n]=result;//storing in cache object
+// console.log(n);
+// console.log(cache[n]);
+//      console.log(cache)
+//      return result;
+//     }
+//   }
+// };
+ 
+// //{5:"15",6:"21"} like this we want to store object
+// console.log(memoize(calc));
+// const efficient=memoize(calc);
+//  console.log(efficient(5));
+// // console.time();
+// // const efficient=memoize(calc);
+// // console.log(efficient(5));
+// // console.log(efficient(6));
+// // console.timeEnd();
+// // console.time();
+
+// // console.log(efficient(5))
+
+// // console.timeEnd();
+// // console.time();
+// // console.log(calc(6));
+// // console.timeEnd();
+
+
+//The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript
+
+// function myFun(a, b, ...manyMoreArgs) {
+
+//   console.log("manyMoreArgs", manyMoreArgs);
+// }
+
+// myFun("one", "two", "three", "four", "five", "six");
+
+//output : manyMoreArgs [ 'three', 'four', 'five', 'six' 
+
+
+
+
+function calc(n){
+  sum=0;
+  for(i=0;i<=n;i++){
+      sum+=i;
+  }
+  return sum;
+}
+
+// console.log(calc(5));
+
+
+const memoize=(fn)=>{
+  let cache={};
+  return function (...args){
+      let n=args[0]
+if(n in cache){
+return cache[n];
+}else{
+  console.log("calculating first time");
+let result =fn(n)
+cache[n]=result
+console.log(cache);
+return cache[n];
+}
+
+  }
+}
+
+const efficient=memoize(calc)
+console.time();
+console.log(efficient(3));
+console.timeEnd();
+
+console.time();
+console.log(efficient(5));
+console.timeEnd();
+
+console.time();
+console.log(efficient(3));
+console.timeEnd();
