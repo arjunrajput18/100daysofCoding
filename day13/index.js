@@ -104,3 +104,169 @@
 //state can be changed
 //useSate hook ->functional components
 //this.state - class component
+
+
+example
+
+
+import './App.css';
+import React from "react";
+import Header from './Header';
+// class App extends React.Component{
+//   constructor(){
+//       super();
+//       this.state={
+//           count :0
+//       };
+//       this.increase=this.increase.bind(this);
+//   }
+   
+//  increase(){
+//      this.setState({count : this.state.count +1});
+//  }
+
+//   render(){
+//       return (
+//           <div style={{margin:'50px'}}>
+//              <h1>Welcome to Geeks for Geeks </h1>
+//              <h3>Counter App using Class Component : </h3>
+//              <h2> {this.state.count}</h2> 
+//              <button onClick={this.increase}> Add</button>
+
+//           </div>
+//       )
+//   }
+// }
+
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleClick = this.handleClick.bind(this);
+//    this.extraclick=this.extraclick.bind(this);
+//     this.newclick=this.newclick.bind(this)
+//   }
+
+//   handleClick() {
+//     console.log('Click happened');
+//   }
+
+//   extraclick(){
+//     console.log("extra click");
+//   }
+
+
+//   newclick(){
+//     console.log("new click me");
+//   }
+//   render() {
+//     return (<><button onClick={this.handleClick}>Click Me</button>
+//     <button onClick={this.extraclick}>Click Me</button>
+//     <button onClick={this.newclick}>new click me</button>
+//     </>);
+//   }
+// }
+// export default App;
+
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+   this.extraclick=this.extraclick.bind(this);
+    this.newclick=this.newclick.bind(this)
+  }
+
+  handleClick() {
+    console.log('Click happened');
+  }
+
+  extraclick(){
+    console.log("extra click");
+  }
+
+
+  newclick(){
+    console.log("new click me");
+  }
+  render() {
+    return (<>
+    <Header name="Arjun">
+      <p>abc</p>
+      <h1>abcd</h1>
+    </Header>
+    </>);
+  }
+}
+export default App;
+
+
+
+
+// import React from 'react';
+
+// function Header({name}) {
+//     return (
+//         <div>
+//            <h1>hello functional component {name}</h1> 
+//         </div>
+//     );
+// }
+
+// export default Header;
+
+// import React from 'react';
+
+// function Header(props) {
+//     return (
+//         <div>
+//            <h1>hello functional component {props.name}</h1> 
+//         </div>
+//     );
+// }
+
+// export default Header;
+
+// import React from 'react';
+
+// function Header({name}) {
+//     return (
+//         <div>
+//            <h1>hello functional component {name}</h1> 
+           
+//         </div>
+//     );
+// }
+
+// export default Header;
+
+// import React from 'react';
+
+// function Header(props) {
+//     return (
+//         <div>
+//            <h1>hello functional component {props.name}</h1> 
+//         {props.children}
+//         </div>
+//     );
+// }
+
+// export default Header;
+
+
+import React from 'react';
+
+function Header(props) {
+    return (
+        <div>
+           <h1>hello functional component {props.name}</h1> 
+        </div>
+    );
+}
+
+
+
+Header.defaultProps={
+    name:'mahesh'
+}
+export default Header;
