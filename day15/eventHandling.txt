@@ -6,19 +6,39 @@
 
 // When JavaScript is used in HTML pages, JavaScript can "react" on these events
 
+import React from "react";
 
-//import React from "react";
+const EventHandling = () => {
+  function changeEvent() {
+    console.log("hello Event Handling...");
+  }
 
-// const EventHandling = () => {
-//   function changeEvent() {
-//     console.log("hello Event Handling...");
-//   }
+  return (
+    <div>
+      <button onClick={changeEvent}>click me</button>
+    </div>
+  );
+};
 
-//   return (
-//     <div>
-//       <button onClick={changeEvent}>click me</button>
-//     </div>
-//   );
-// };
+export default EventHandling;
 
-// export default EventHandling;
+
+
+// import React, { Component } from 'react';
+
+// class eventHandling extends Component {
+//we dont used function keyword in class .
+//      changeEvent(){
+//         console.log("Hello Arjun")
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <button onClick={this.changeEvent}>Click me</button>
+//             </div>
+//         );
+//     }
+// }
+
+// export default eventHandling;
