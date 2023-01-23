@@ -1,0 +1,98 @@
+//video 18
+//manage multiple list data with state & props
+//What is map () method?
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+import React from "react";
+
+function eventHandling(props) {
+    const users =[
+       
+        {
+          id: 1,
+          name: "Arjun",
+          class: "A",
+        },
+        {
+          id: 2,
+          name: "vaibhav",
+          class: "B",
+        }
+      ]
+
+     const ab=users.map((el)=>{
+        console.log(el.name);
+        return el.name
+      })
+
+  return (
+    <>
+      <ul>
+        {props.numbers.map((ele,i) => {
+          return <li key={i}>{ele}</li>;
+        })}
+      </ul>
+  <h1>hii</h1>
+  <ul>
+    {ab.map((ell,i)=>{
+return <li key={i}> {ell} </li>
+    })}
+    <br/>
+  </ul>
+    </>
+  );
+}
+
+export default eventHandling;
+
+
+
+
+//video 18
+//manage multiple list data with state & props
+//imp How to fix Warning: validateDOMNesting(...):- your passing tag inside tag ex <h1> tag inside <h1>
+import React, { Component } from "react";
+
+class eventHandling extends Component {
+  state={
+    users:[
+    {id:1,name:"brian",class:"A"},
+    {id:2,name:"max",class:"B"}
+    ]
+  }
+  render() {
+    //here we dont defined props  as we used props as attribute  which are passed
+    const numbers = this.props.numbers;
+    console.log(this.state.users[0].name);
+
+    const abUser=this.state.users.map((ele)=>{
+        return <h2>{ele.id} {ele.name}</h2>
+    })
+    return (
+      <>
+        <ul>
+          {numbers.map((el,i) => {
+            return <li key={i}>{el}</li>;
+          })}
+        </ul>
+      {abUser}
+      </>
+    );
+  }
+}
+
+export default eventHandling;
+
+
+import React from 'react';
+import EventHandling from './EventHandling.js';
+
+const App = () => {
+  const numbers=[323,4,56,8,4,1]
+  return (
+    <div>
+      <EventHandling  roll="62" numbers={numbers}/>
+    </div>
+  );
+};
+
+export default App;
