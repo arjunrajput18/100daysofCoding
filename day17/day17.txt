@@ -1,0 +1,53 @@
+//video 15
+//what is Fragments in react.
+//fragemnt is used to group multiple element without creating extra node and extra div
+//in react we want single element to be return
+//React Fragment is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
+//<></>
+//to avoid unwanted extra div
+//<React.Fragment> </React.Fragment>
+//used to group list of element or multiple element without creating extra node.
+//render method return only one div
+
+//video 16
+//list in react- map function()
+//list - collection of element
+
+import React, { Component } from "react";
+
+class eventHandling extends Component {
+  //map returns callback function.
+  render() {
+    const numbers = [3, 4, 5, 6];
+
+
+
+    return (
+      <div>
+        <ul>
+          {numbers.map((numbers) => {
+            return <li>{numbers}</li>;
+          })}
+        </ul>
+        {numbers[1]}
+      </div>
+    );
+  }
+}
+
+export default eventHandling;
+
+//video 17
+//callBacks -code optimized
+
+    //callbacks are a great way to handle something after something else has been completed.by something here we mean a function execution .if wwe want to execute a function right after the return of some other function,then callbacks can be used. 
+    //function add(a,b,callback){
+    //     console.log(`the sum of ${a}and ${b}is ${a+b}`);
+    //     callback()
+    // }
+    // function disp() {
+    //     console.log(`this must printed after addition`);
+    // }
+    // add(5,6,disp)
+    //yeah task complete ho jaane ke baad vho task chale.
+
