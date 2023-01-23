@@ -1,0 +1,55 @@
+import React from 'react';
+import "./stylesheet.css"
+//video 19 key same key cannot used in one page , if we want to pass keys then used value or key attribute. and define attibute their and defined testing component their. please refer again keys video
+
+
+//video 20
+
+//styling &css basic 
+const stylesheet = (props) => {
+    let className=props.isvalue ? 'demo' :'demo1' 
+    return (
+        <div>
+            <h1 className={`${className} demo2`}>hiiii</h1>
+        </div>
+    );
+};
+
+export default stylesheet;
+
+stylesheet.css
+
+div{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo{
+    color: green;
+}
+
+.demo1{
+    color: blue;
+}
+
+
+.demo2{
+    font-size: 150px;
+}
+
+
+app.js
+
+import React from 'react';
+// import EventHandling from './EventHandling.js';
+import StyleSheet from "./stylesheet"
+const App = () => {
+  return (
+    <div>
+     <StyleSheet isvalue={false}></StyleSheet>
+    </div>
+  );
+};
+
+export default App;
