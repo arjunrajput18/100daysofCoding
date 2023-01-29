@@ -14,24 +14,32 @@ export default class AxiosMethod extends Component {
     super(props);
     this.state = {
       posts: [],
+      error:''
     };
   }
 
   componentDidMount() {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
-      .then((resp) => this.setState({ posts: resp.data }));
+      .then((resp) => this.setState({ posts: resp.data }))
+      .catch(error=>{
+        this.setState({error :"URL Error"})
+        console.log(error)
+      })
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts,error } = this.state; //whatever we pass in constructor you have to pass here
 
     return (
       <div>
-        {posts.map((post) => (
-          <div key={post.id}>{post.name}</div>
-        ))}
-
+        {posts.length ?
+          posts.map(post => 
+          <div key={post.id}>{post.name}</div>):null
+        }
+        {
+          error ? <div>{error}</div>:null
+        }
         <h1>Hi i am Working</h1>
       </div>
     );
