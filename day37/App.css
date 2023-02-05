@@ -1,0 +1,35 @@
+
+.img-wrapper img {
+  width: 45px;
+  margin-top: -10px;
+  
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+.text-wrapper span{
+  font-size: large;
+  margin: 0.9rem;
+}
+.btn-wrapper button {
+  margin: 0.5rem 0.5rem;
+  background-color: #a21caf;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem 0.5rem;
+  color: blanchedalmond;
+  
+}
+.item {
+  float:left;
+  width:120px;
+  padding: 20px;
+  height:70px;
+
+}
+.cart-wrapper{
+  height :100px;
+  width :500px;
+  border:1px solid #ccc;
+  margin-left: 10%;
+}
